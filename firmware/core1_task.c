@@ -45,6 +45,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <string.h>
 
 #include "bsp/board.h"
@@ -95,14 +96,13 @@ uint8_t test_buf[TEST_BUF_LEN] = {0};
 
 extern bool usbd_edpt_xfer(uint8_t rhport, uint8_t ep_addr, uint8_t * buffer, uint16_t total_bytes);
 
-void tud_vendor_rx_cb(uint8_t itf) {
-    while (itf > 0) itf--; // For unused error
-        uint8_t buf[64];
-      uint32_t count = tud_vendor_read(buf, sizeof(buf));
+void tud_vendor_rx_cb(uint8_t itf, uint8_t const* buffer, uint16_t bufsize) {
+  (void) itf;
+  (void) buffer;
+  
+  usbd_edpt_xfer(0, 0x83, test_buf, sizeof(test_buf));
 
-      usbd_edpt_xfer(0, 0x83, test_buf, sizeof(test_buf));
-
-      printf("tud_vendor_rx_cb: red %d bytes\n", (int) count);
+  printf("tud_vendor_rx_cb: red %d bytes\n", (int) bufsize);
 
 }
 

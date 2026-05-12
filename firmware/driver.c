@@ -2,6 +2,7 @@
 
 #include "tusb_option.h"
 
+#include "tusb.h"
 #include "device/usbd_pvt.h"
 #include "pico/stdlib.h"
 
