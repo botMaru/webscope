@@ -96,6 +96,20 @@ export default function App() {
   let [captureState, setCaptureState] = useState(defaultCaptureState);
   let [welcomeWindowActive, setWelcomeWindowActive] = useState(true);
 
+  // Function for Reset View menu item
+  function resetView() {
+    setViewConfig(defaultViewConfig);
+  }
+
+  // Function for Reset all settings menu item
+  function resetSettings() {
+    setCaptureConfig(defaultCaptureConfig);
+    setSavedCaptureConfig(defaultCaptureConfig);
+    setViewConfig(defaultViewConfig);
+    setCursorConfig(defaultCursorConfig);
+    setGeneratorConfig(defaultGeneratorConfig);
+    setCaptureData(defaultCaptureData);
+  }
 
   async function connect() {
     let device = await navigator.usb.requestDevice({
@@ -147,7 +161,12 @@ export default function App() {
     <div className="app">
       <div className="px-1 flex bg-slate-50 border-b border-slate-200 w-screen select-none">
 
-      <AppMenu captureData={captureData} captureConfig={savedCaptureConfig}></AppMenu>
+      <AppMenu 
+        captureData={captureData} 
+        captureConfig={savedCaptureConfig}
+        resetView={resetView}
+        resetSettings={resetSettings}
+      />
       <div className='flex'>
       <CaptureDepthAndSampleRateConfig 
           captureConfig={captureConfig} 

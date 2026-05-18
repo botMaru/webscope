@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react';
 import PopUpWindow from './PopUpWindow';
 import { getNumActiveChannels } from './Utils';
 
-export default function AppMenu(captureData, captureConfig) {
+export default function AppMenu({captureData, captureConfig, resetView, resetSettings}) {
     const [appMenuActive, setAppMenuActive] = useState(false);
 
-    function saveCsv({captureData, captureConfig}) {
+    function saveCsv(captureData, captureConfig) {
 
     
         let csv = [];
@@ -46,14 +46,15 @@ export default function AppMenu(captureData, captureConfig) {
 
             <PopUpWindow active={appMenuActive} setActive={setAppMenuActive} >
                 <ul className='list-disc px-5'>
-                    <li>About</li>
-                    <li>User manual</li>
-                    <li>Download firmware</li>
-                    <li>Get offline version</li>
-                    <li>Reset view</li>
-                    <li>Reset all settings</li>
+                    <li><a href="https://github.com/botmaru/webscope" target="_blank" rel="noreferrer">About</a></li>
+                    <li><a href="webscope_manual.pdf" target="_blank" rel="noreferrer">User manual</a></li>
+                    <li><a href="rp2040_webscope.uf2" download>Raspberry Pi Pico (RP2040)</a></li>
+                    <li><a href="rp2350_webscope.uf2" download>Raspberry Pi Pico 2 (RP2350)</a></li>
+                    <li><a href="https://github.com/botmaru/webscope/archive/refs/heads/main.zip">Get offline version</a></li>
+                    <li className="cursor-pointer" onClick={() => { resetView(); setAppMenuActive(false); }}>Reset view</li>
+                    <li className="cursor-pointer" onClick={() => { resetSettings(); setAppMenuActive(false); }}>Reset all settings</li>
+                    <li className="cursor-pointer" onClick={() => saveCsv(captureData, captureConfig)}>Download capture (csv)</li>
                 </ul>
-                <button onClick={() => saveCsv(captureData, captureConfig)}>Download capture (csv)</button>
             </PopUpWindow>
         </div>
     );
