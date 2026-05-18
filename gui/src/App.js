@@ -98,17 +98,35 @@ export default function App() {
 
   // Function for Reset View menu item
   function resetView() {
-    setViewConfig(defaultViewConfig);
+    setViewConfig({
+      vertical: [
+        {offset: 0, zoom: 1}, 
+        {offset: 0, zoom: 1},
+        {offset: 0, zoom: 1}
+      ],
+      horizontal: {
+        zoom: 1,
+        offset: 0,
+        viewCenter: captureConfig.captureDepth / 2 // Použijeme tvůj AKTUÁLNÍ stav místo té globální proměnné
+      },
+      grid: true
+    });
   }
 
   // Function for Reset all settings menu item
   function resetSettings() {
-    setCaptureConfig(defaultCaptureConfig);
-    setSavedCaptureConfig(defaultCaptureConfig);
-    setViewConfig(defaultViewConfig);
-    setCursorConfig(defaultCursorConfig);
-    setGeneratorConfig(defaultGeneratorConfig);
-    setCaptureData(defaultCaptureData);
+    //Stop capture if running to prevent freezing
+    setCaptureState("Stopped");
+
+    //Short delay to ensure capture has stopped
+    setTimeout(() => {
+      setCaptureConfig(defaultCaptureConfig);
+      setSavedCaptureConfig(defaultCaptureConfig);
+      setViewConfig(defaultViewConfig);
+      setCursorConfig(defaultCursorConfig);
+      setGeneratorConfig(defaultGeneratorConfig);
+      setCaptureData(defaultCaptureData);
+    }, 50);
   }
 
   async function connect() {
