@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/webscope/static/css/main.2c46eccd.css",
-    "main.js": "/webscope/static/js/main.3760719f.js",
+    "main.css": "/webscope/static/css/main.55571367.css",
+    "main.js": "/webscope/static/js/main.b31d72e0.js",
     "static/js/787.ad33413d.chunk.js": "/webscope/static/js/787.ad33413d.chunk.js",
     "static/media/symbol_cvut_konturova_verze_cb.svg": "/webscope/static/media/symbol_cvut_konturova_verze_cb.501503d6016fe5faa52eeb3d7d9a053b.svg",
     "index.html": "/webscope/index.html",
-    "main.2c46eccd.css.map": "/webscope/static/css/main.2c46eccd.css.map",
-    "main.3760719f.js.map": "/webscope/static/js/main.3760719f.js.map",
+    "main.55571367.css.map": "/webscope/static/css/main.55571367.css.map",
+    "main.b31d72e0.js.map": "/webscope/static/js/main.b31d72e0.js.map",
     "787.ad33413d.chunk.js.map": "/webscope/static/js/787.ad33413d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2c46eccd.css",
-    "static/js/main.3760719f.js"
+    "static/css/main.55571367.css",
+    "static/js/main.b31d72e0.js"
   ]
 }
