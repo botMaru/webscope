@@ -50,7 +50,7 @@ export default function AppMenu({captureData, captureConfig, resetView, resetSet
                     <li><a href="webscope_manual.pdf" target="_blank" rel="noreferrer">User manual</a></li>
                     <li><a href="rp2040_webscope.uf2" download>Raspberry Pi Pico (RP2040)</a></li>
                     <li><a href="rp2350_webscope.uf2" download>Raspberry Pi Pico 2 (RP2350)</a></li>
-                    <li><a href="https://github.com/botmaru/webscope/archive/refs/heads/main.zip">Get offline version</a></li>
+                    <li><a href="webscope_offline.zip" download>Get offline version</a></li>
                     <li className="cursor-pointer" onClick={() => { resetView(); setAppMenuActive(false); }}>Reset view</li>
                     <li className="cursor-pointer" onClick={() => { resetSettings(); setAppMenuActive(false); }}>Reset all settings</li>
                     <li className="cursor-pointer" onClick={() => saveCsv(captureData, captureConfig)}>Download capture (csv)</li>
