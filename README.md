@@ -7,4 +7,5 @@ This project is a fork of the original WebScope developed by Ing. Jan Fiala at t
 This fork also finished some intended features in GUI menu. This updated version can be used at https://botmaru.github.io/webscope/
 
 Original firmware author: Ing. Jan Fiala 
+
 Pico 2 port and improved GUI author: Martin Týfa
